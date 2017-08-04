@@ -1,16 +1,16 @@
 package com.blckly.kit.parts;
 
-public class Engine {
+public class Engine extends Part{
 
   private static String DEFAULT_ENGINE_NAME = "defaultEngine";
 
-  private String name;
+  public Engine() {
+    super();
+  }
 
   public Engine(String name) {
-    this.name = name;
+    super();
+    setName(name);
   }
 
-  public String getName() {
-    return name;
-  }
 }

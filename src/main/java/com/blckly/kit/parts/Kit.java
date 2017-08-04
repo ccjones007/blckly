@@ -1,17 +1,23 @@
 package com.blckly.kit.parts;
 
+import java.util.LinkedList;
+
 public class Kit {
 
   public static double DEFAULTPRICE = 10.00;
 
   private String name;
-  private double basePrice;
-  private KitBody kitBody;
+  private double basePrice = DEFAULTPRICE;
+  private BodyKit bodyKit;
   private Engine engine;
-  private Wheel wheels;
+  private LinkedList<Wheel> wheels;
   private PowerSource powerSource;
   private Color color;
   private Finish finish;
+
+  private boolean unique = false;
+
+  public Kit() {}
 
   public Kit(String name) {
     this.name = name;
@@ -26,7 +32,7 @@ public class Kit {
   }
 
   public double getBasePrice() {
-    // also - calculate price based on the component prices and not a set whole kit price
+    // may not be the total price if component have surcharges.
     return basePrice;
   }
 
@@ -34,12 +40,12 @@ public class Kit {
     this.basePrice = price;
   }
 
-  public KitBody getKitBody() {
-    return kitBody;
+  public BodyKit getBodyKit() {
+    return bodyKit;
   }
 
-  public void setKitBody(KitBody kitBody) {
-    this.kitBody = kitBody;
+  public void setBodyKit(BodyKit bodyKit) {
+    this.bodyKit = bodyKit;
   }
 
   public Engine getEngine() {
@@ -50,13 +56,13 @@ public class Kit {
     this.engine = engine;
   }
 
-  public Wheel getWheels() {
+  public LinkedList<Wheel> getWheels() {
     return wheels;
   }
 
-  public void setWheels(Wheel wheels) {
+  public void setWheels(Wheel wheel) {
     // uni-cycle kits only :)
-    this.wheels = wheels;
+    this.wheels.add(wheel);
   }
 
   public PowerSource getPowerSource() {
@@ -81,5 +87,13 @@ public class Kit {
 
   public void setFinish(Finish finish) {
     this.finish = finish;
+  }
+
+  public boolean getUnique() {
+    return unique;
+  }
+
+  public void setUnique(boolean unique) {
+    this.unique = unique;
   }
 }

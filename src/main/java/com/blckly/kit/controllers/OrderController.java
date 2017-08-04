@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class OrderController {
 
-
   @RequestMapping("/defaultKit")
   public Kit defaultKit(@RequestParam(value="name", defaultValue="AwesomeKit") String name) {
     Kit defaultKit = new Kit(name);

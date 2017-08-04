@@ -1,5 +1,9 @@
 package com.blckly.kit.parts;
 
-public class Color {
+public class Color extends Part{
+
+  public Color() {
+    super();
+  }
 
 }
