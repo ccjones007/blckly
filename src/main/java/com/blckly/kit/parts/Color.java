@@ -6,4 +6,9 @@ public class Color extends Part{
     super();
   }
 
+  public Color(String name) {
+    super();
+    setName(name);
+  }
+
 }

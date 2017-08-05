@@ -10,7 +10,7 @@ public class Kit {
   private double basePrice = DEFAULTPRICE;
   private BodyKit bodyKit;
   private Engine engine;
-  private LinkedList<Wheel> wheels;
+  private LinkedList<Wheel> wheels = new LinkedList<>();
   private PowerSource powerSource;
   private Color color;
   private Finish finish;
@@ -60,9 +60,13 @@ public class Kit {
     return wheels;
   }
 
-  public void setWheels(Wheel wheel) {
-    // uni-cycle kits only :)
-    this.wheels.add(wheel);
+  //public void setWheels(Wheel wheel) {
+  //  // uni-cycle kits only :)
+  //  this.wheels.add(wheel);
+  //}
+
+  public void setWheels(LinkedList<Wheel> wheels) {
+    this.wheels.addAll(wheels);
   }
 
   public PowerSource getPowerSource() {

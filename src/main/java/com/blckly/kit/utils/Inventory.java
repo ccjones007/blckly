@@ -49,7 +49,17 @@ public class Inventory {
     this.finishes.add(kit.getFinish());
   }
 
+  public LinkedList<Kit> getKits() {
+    return kits;
+  }
+
   public LinkedList<BodyKit> getBodyKits() {
     return bodyKits;
   }
+
+  public LinkedList<Color> getColors() {
+    return colors;
+  }
+
+
 }

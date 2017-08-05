@@ -1,6 +1,7 @@
 package com.blckly.kit.controllers;
 
 import com.blckly.kit.parts.BodyKit;
+import com.blckly.kit.parts.Color;
 import com.blckly.kit.parts.Kit;
 import com.blckly.kit.utils.Inventory;
 import com.blckly.kit.utils.InventoryStatus;
@@ -22,17 +23,14 @@ public class InventoryController {
   private final AtomicInteger bodyKitCounter = new AtomicInteger();
   //private LinkedList<BodyKit> bodyKits = new LinkedList<BodyKit>();
 
-
-  public InventoryStatus addKit() {
-    return new InventoryStatus(InventoryStatus.FAILURE, InventoryStatus.ERROR_CODE_GEN_FAILURE);
-  }
-
-
-  @RequestMapping(path="/inv/bodykit", method= RequestMethod.POST)
-  public InventoryStatus addBodyKit(@RequestParam(value="name", defaultValue="BodyKit_1") String name) {
-    BodyKit bodyKit = new BodyKit(bodyKitCounter.incrementAndGet(), name);
-    inventory.addBodyKit(bodyKit);
-    return new InventoryStatus("success", bodyKit.getId());
+  @RequestMapping(path="/inv/kits", method=RequestMethod.POST)
+  public InventoryStatus addKits(@RequestBody LinkedList<Kit> kits) {
+    int count_added = 0;
+    for( Kit kit : kits) {
+      this.inventory.addKit(kit);
+      count_added++;
+    }
+    return new InventoryStatus(InventoryStatus.SUCCESS, InventoryStatus.ITEM_ADDED, count_added);
   }
 
   @RequestMapping(path="/inv/bodykits", method=RequestMethod.POST)
@@ -43,6 +41,24 @@ public class InventoryController {
       count_added++;
     }
     return new InventoryStatus(InventoryStatus.SUCCESS, InventoryStatus.ITEM_ADDED, count_added);
+  }
+
+  @RequestMapping(path="/inv/colors", method=RequestMethod.POST)
+  public InventoryStatus addBodyColors(@RequestBody LinkedList<Color> colors) {
+    int count_added = 0;
+    for( Color c : colors) {
+      this.inventory.addColor(c);
+      count_added++;
+    }
+    return new InventoryStatus(InventoryStatus.SUCCESS, InventoryStatus.ITEM_ADDED, count_added);
+  }
+
+
+  @RequestMapping(path="/inv/bodykit", method= RequestMethod.POST)
+  public InventoryStatus addBodyKit(@RequestParam(value="name", defaultValue="BodyKit_1") String name) {
+    BodyKit bodyKit = new BodyKit(bodyKitCounter.incrementAndGet(), name);
+    inventory.addBodyKit(bodyKit);
+    return new InventoryStatus("success", bodyKit.getId());
   }
 
   @RequestMapping(path="/inv/bodykits", method=RequestMethod.GET)
@@ -58,16 +74,6 @@ public class InventoryController {
         return bk;
     }
     return null;
-  }
-
-  @RequestMapping(path="/inv/kits", method=RequestMethod.POST)
-  public InventoryStatus addKits(@RequestBody LinkedList<Kit> kits) {
-    int count_added = 0;
-    for( Kit kit : kits) {
-      this.inventory.addKit(kit);
-      count_added++;
-    }
-    return new InventoryStatus(InventoryStatus.SUCCESS, InventoryStatus.ITEM_ADDED, count_added);
   }
 
 }
