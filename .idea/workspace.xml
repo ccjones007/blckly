@@ -1,22 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7385e277-460e-49a4-8c5c-34fa5719806e" name="Default" comment="added some logging to help debug, an orderstatus return object, some json data to use to fill in the inventory, filled out some missing pieces.">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/inventorydata/bodykits.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/inventorydata/colors.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/inventorydata/engines.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/inventorydata/finishes.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/inventorydata/powersources.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/inventorydata/wheels.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/blckly/kit/orders/OrderStatus.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/blckly/kit/parts/Kit.java" afterPath="$PROJECT_DIR$/src/main/java/com/blckly/kit/orders/Kit.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/blckly/kit/utils/Order.java" afterPath="$PROJECT_DIR$/src/main/java/com/blckly/kit/orders/Order.java" />
+    <list default="true" id="7385e277-460e-49a4-8c5c-34fa5719806e" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/inventorydata/kits.json" afterPath="$PROJECT_DIR$/inventorydata/kits.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/blckly/kit/controllers/InventoryController.java" afterPath="$PROJECT_DIR$/src/main/java/com/blckly/kit/controllers/InventoryController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/blckly/kit/controllers/OrderController.java" afterPath="$PROJECT_DIR$/src/main/java/com/blckly/kit/controllers/OrderController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/blckly/kit/parts/Part.java" afterPath="$PROJECT_DIR$/src/main/java/com/blckly/kit/parts/Part.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/blckly/kit/utils/Inventory.java" afterPath="$PROJECT_DIR$/src/main/java/com/blckly/kit/utils/Inventory.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -157,6 +143,11 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
   </component>
   <component name="GradleLocalSettings">
     <option name="modificationStamps">
@@ -528,7 +519,14 @@
       <option name="project" value="LOCAL" />
       <updated>1501957250974</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="added some logging to help debug, an orderstatus return object, some json data to use to fill in the inventory, filled out some missing pieces.">
+      <created>1502077297168</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1502077297168</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
