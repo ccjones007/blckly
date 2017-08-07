@@ -9,6 +9,7 @@ import com.blckly.kit.parts.Finish;
 import com.blckly.kit.orders.Kit;
 import com.blckly.kit.parts.PowerSource;
 import com.blckly.kit.parts.Wheel;
+import com.blckly.kit.utils.GeoDistance;
 import com.blckly.kit.utils.Inventory;
 import java.util.LinkedList;
 import org.apache.log4j.Logger;
@@ -16,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestTemplate;
 
 @RestController
 public class OrderController {
@@ -90,6 +92,10 @@ public class OrderController {
     OrderStatus orderStatus = new OrderStatus();
     // use the address to determine uniqueness and if not unique then return with
     // order status of NOT_UNIQ.
+    RestTemplate geoLocationService = new RestTemplate();
+    // Using elastic search endpoint just for testing.
+    GeoDistance geoDistance = geoLocationService.getForObject("http://localhost:9200/?pretty", GeoDistance.class);
+    logger.info(geoDistance.toString());
 
     // remove each order piece from inventory and if back ordered then set status as such.
     Kit kit = order.getKit();
@@ -121,6 +127,8 @@ public class OrderController {
     if(orderStatus.getStatus() == 0) {
       orderStatus.setStatus(OrderStatus.ORDER_SUCCESS);
     }
+
+    // never added up the base cost plus the surcharges for the premium parts.
 
     return orderStatus;
   }
