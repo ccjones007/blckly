@@ -4,6 +4,7 @@ public class OrderStatus {
 
   public static int ORDER_SUCCESS = 1;
   public static int ORDER_FAILED = -1;
+  public static int ORDER_NOT_UNIQ = -2;
   public static int ORDER_BACKORDERED = 2;
   public static int ORDER_CANCELLED = 3;
 

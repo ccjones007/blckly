@@ -1,12 +1,15 @@
-[
-  {
+{
+  "customerName": "John Wayne",
+  "address_one": "123 Main St",
+  "address_two": "Popperville PA, 21202",
+  "kit": {
     "name": "Kit One",
     "basePrice": 10,
     "bodyKit": {
       "name": "Street BodyKit"
     },
     "engine": {
-      "name": "Racer"
+    "name": "Racer"
     },
     "wheels": [
       {
@@ -23,7 +26,7 @@
       }
     ],
     "powerSource": {
-      "name": "Broadly 4.5v"
+    "name": "Broadly 4.5v"
     },
     "color": {
       "name": "Black"
@@ -32,4 +35,4 @@
       "name": "Glitter"
     }
   }
-]
+}
