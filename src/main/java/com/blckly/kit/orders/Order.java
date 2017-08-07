@@ -4,6 +4,9 @@ import java.util.LinkedList;
 
 public class Order {
 
-  public LinkedList<Kit> kits = new LinkedList<>();
-
+  private LinkedList<Kit> kits = new LinkedList<>();
+  private String name;
+  // used to test uniqueness of kit
+  private String address_one;
+  private String address_two;
 }
