@@ -1,0 +1,17 @@
+[
+  {
+    "name": "All season",
+    "surcharge": 1.50,
+    "count": 16
+  },
+  {
+    "name": "Offroad Bigs",
+    "surcharge": 3.00,
+    "count": 16
+  },
+  {
+    "name": "Street",
+    "surcharge": 1.25,
+    "count": 12
+  }
+]

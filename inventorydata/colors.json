@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Green",
+    "surcharge": 0,
+    "count": 20
+  },
+  {
+    "name": "Black",
+    "surcharge": 2.00,
+    "count": 20
+  },
+  {
+    "name": "Red",
+    "surcharge": 0,
+    "count": 10
+  }
+]

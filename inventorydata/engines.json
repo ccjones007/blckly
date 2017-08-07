@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Standard",
+    "surcharge": 0,
+    "count": 16
+  },
+  {
+    "name": "Racer",
+    "surcharge": 3.25,
+    "count": 16
+  },
+  {
+    "name": "Offroad",
+    "surcharge": 1.25,
+    "count": 12
+  }
+]

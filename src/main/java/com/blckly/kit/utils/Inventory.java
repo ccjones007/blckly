@@ -4,16 +4,17 @@ import com.blckly.kit.parts.BodyKit;
 import com.blckly.kit.parts.Color;
 import com.blckly.kit.parts.Engine;
 import com.blckly.kit.parts.Finish;
-import com.blckly.kit.parts.Kit;
 import com.blckly.kit.parts.PowerSource;
 import com.blckly.kit.parts.Wheel;
 import java.util.LinkedList;
+import org.apache.log4j.Logger;
 
 public class Inventory {
 
   public static final Inventory INVENTORY = new Inventory();
 
-  private LinkedList<Kit> kits = new LinkedList<Kit>();
+  private Logger logger = Logger.getLogger(Inventory.class);
+
   private LinkedList<BodyKit> bodyKits = new LinkedList<BodyKit>();
   private LinkedList<Color> colors = new LinkedList<Color>();
   private LinkedList<Engine> engines = new LinkedList<Engine>();
@@ -22,44 +23,133 @@ public class Inventory {
   private LinkedList<Wheel> wheels = new LinkedList<Wheel>();
 
   private Inventory() {
+    logger.info("initializing Inventory instance");
   }
 
-  public void addBodyKit(BodyKit bodyKit) { this.bodyKits.add(bodyKit); }
-
-  public void addColor(Color color) { this.colors.add(color); }
-
-  public void addEngine(Engine engine) { this.engines.add(engine);}
-
-  public void addFinish(Finish finish) { this.finishes.add(finish); }
-
-  public void addPowerSource(PowerSource powerSource) { this.powerSources.add(powerSource); }
-
-  public void addWheel(Wheel wheel) { this.wheels.add(wheel); }
-
-  public void addKit(Kit kit) {
-    // add the kit as set
-    this.kits.add(kit);
-
-    // do we add the individual kit pieces for use creating custom kits.
-    this.bodyKits.add(kit.getBodyKit());
-    //this.wheels.add(kit.getWheels());
-    this.colors.add(kit.getColor());
-    this.engines.add(kit.getEngine());
-    this.powerSources.add(kit.getPowerSource());
-    this.finishes.add(kit.getFinish());
+  // stocking inventory
+  public void addBodyKit(BodyKit bodyKit) {
+    int index = this.bodyKits.indexOf(bodyKit);
+    logger.info("adding body kit to inventory");
+    if(index == -1)
+      this.bodyKits.add(bodyKit);
+    else
+      this.bodyKits.get(index).incrementCount(bodyKit.getCount());
   }
 
-  public LinkedList<Kit> getKits() {
-    return kits;
+  public void addColor(Color color) {
+    int index = this.colors.indexOf(color);
+    if(index == -1)
+      this.colors.add(color);
+    else
+      this.colors.get(index).incrementCount(color.getCount());
   }
 
-  public LinkedList<BodyKit> getBodyKits() {
-    return bodyKits;
+  public void addEngine(Engine engine) {
+    int index = this.engines.indexOf(engine);
+    if(index == -1)
+      this.engines.add(engine);
+    else
+      this.engines.get(index).incrementCount(engine.getCount());
   }
 
-  public LinkedList<Color> getColors() {
-    return colors;
+  public void addFinish(Finish finish) {
+    int index = this.finishes.indexOf(finish);
+    if(index == -1)
+      this.finishes.add(finish);
+    else
+      this.finishes.get(index).incrementCount(finish.getCount());
   }
 
+  public void addPowerSource(PowerSource powerSource) {
+    int index = this.powerSources.indexOf(powerSource);
+    if(index == -1)
+      this.powerSources.add(powerSource);
+    else
+      this.powerSources.get(index).incrementCount(powerSource.getCount());
+    }
 
+  public void addWheel(Wheel wheel) {
+    int index = this.wheels.indexOf(wheel);
+    if(index == -1)
+      this.wheels.add(wheel);
+    else
+      this.wheels.get(index).incrementCount(wheel.getCount());
+  }
+
+  // grabbing list of available kit parts
+  public LinkedList<BodyKit> getBodyKits() { return bodyKits; }
+
+  public LinkedList<Color> getColors() { return colors; }
+
+  public LinkedList<Engine> getEngines() { return engines; }
+
+  public LinkedList<Finish> getFinishes() { return finishes; }
+
+  public LinkedList<PowerSource> getPowerSources() { return powerSources; }
+
+  public LinkedList<Wheel> getWheels() { return wheels; }
+
+
+  public long removeBodyKit(BodyKit bodyKit) {
+    int index = bodyKits.indexOf(bodyKit);
+    logger.info("remove bodykit with index " + index);
+    if(index >= 0)
+      return bodyKits.get(index).decrementCount();
+    // here we could throw inventory item not found.
+    return -1;
+  }
+
+  public long removeColor(Color color) {
+    int index = colors.indexOf(color);
+    logger.info("remove color with index " + index);
+    if(index >= 0)
+      return colors.get(index).decrementCount();
+    // here we could throw inventory item not found.
+    return -1;
+  }
+
+  public long removeEngine(Engine engine) {
+    int index = engines.indexOf(engine);
+    logger.info("remove engine with index " + index);
+    if(index >= 0)
+      return engines.get(index).decrementCount();
+    // here we could throw inventory item not found.
+    return -1;
+  }
+
+  public long removeFinish(Finish finish) {
+    int index = finishes.indexOf(finish);
+    logger.info("remove finish with index " + index);
+    if(index >= 0)
+      return finishes.get(index).decrementCount();
+    // here we could throw inventory item not found.
+    return -1;
+  }
+
+  public long removePowerSource(PowerSource powerSource) {
+    int index = powerSources.indexOf(powerSource);
+    logger.info("remove powersource with index " + index);
+    if(index >= 0)
+      return powerSources.get(index).decrementCount();
+    // here we could throw inventory item not found.
+    return -1;
+  }
+
+  public long removeWheel(Wheel wheel) {
+    int index = wheels.indexOf(wheel);
+    logger.info("remove wheel with index " + index);
+    if(index >= 0)
+      return wheels.get(index).decrementCount();
+    // here we could throw inventory item not found.
+    return -1;
+  }
+
+  public long removeWheels(LinkedList<Wheel> wheels) {
+    long backOrderCount = 1;
+    for(Wheel wheel : wheels) {
+      if(removeWheel(wheel) < 0)
+        backOrderCount = -1;
+    }
+    return backOrderCount;
+  }
 }

@@ -3,64 +3,33 @@
     "name": "Kit One",
     "basePrice": 10,
     "bodyKit": {
-      "name": "Standard BodyKit",
-      "surcharge": 0,
-      "id": 1
+      "name": "Street BodyKit"
     },
     "engine": {
-      "name": "Rocket",
-      "surcharge": 0
+      "name": "Racer"
     },
     "wheels": [
       {
-        "name": "Michelin 10s",
-        "surcharge": 0
-      }
-    ],
-    "powerSource": {
-      "name": "3.0V",
-      "surcharge": 0
-    },
-    "color": {
-      "name": "Black",
-      "surcharge": 0
-    },
-    "finish": {
-      "name": "Glitter",
-      "surcharge": 0
-    },
-    "unique": false
-  },
-  {
-    "name": "Kit Two",
-    "basePrice": 20,
-    "bodyKit": {
-      "name": "Fire BodyKit",
-      "surcharge": 2.25,
-      "id": 1
-    },
-    "engine": {
-      "name": "Rocket III",
-      "surcharge": 0
-    },
-    "wheels": [
+        "name": "All season"
+      },
       {
-        "name": "Michelin Rubber",
-        "surcharge": 0
+        "name": "All season"
+      },
+      {
+        "name": "Offroad Bigs"
+      },
+      {
+        "name": "Offroad Bigs"
       }
     ],
     "powerSource": {
-      "name": "12.0V",
-      "surcharge": 1.10
+      "name": "Broadly 4.5v"
     },
     "color": {
-      "name": "Red",
-      "surcharge": 0
+      "name": "Black"
     },
     "finish": {
-      "name": "Flames",
-      "surcharge": 0
-    },
-    "unique": false
+      "name": "Glitter"
+    }
   }
 ]

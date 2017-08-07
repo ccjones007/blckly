@@ -1,5 +1,11 @@
-package com.blckly.kit.parts;
+package com.blckly.kit.orders;
 
+import com.blckly.kit.parts.BodyKit;
+import com.blckly.kit.parts.Color;
+import com.blckly.kit.parts.Engine;
+import com.blckly.kit.parts.Finish;
+import com.blckly.kit.parts.PowerSource;
+import com.blckly.kit.parts.Wheel;
 import java.util.LinkedList;
 
 public class Kit {

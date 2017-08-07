@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Standard BodyKit",
+    "surcharge": 0,
+    "count": 24
+  },
+  {
+    "name": "Fancy BodyKit",
+    "surcharge": 2.00,
+    "count": 16
+  },
+  {
+    "name": "Street BodyKit",
+    "surcharge": 4.25,
+    "count": 12
+  }
+]

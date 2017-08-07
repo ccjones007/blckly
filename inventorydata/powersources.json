@@ -1,0 +1,17 @@
+[
+  {
+    "name": "Acer 9v",
+    "surcharge": 0,
+    "count": 16
+  },
+  {
+    "name": "Acer 12v",
+    "surcharge": 3.25,
+    "count": 16
+  },
+  {
+    "name": "Broadly 4.5v",
+    "surcharge": 1.25,
+    "count": 12
+  }
+]
