@@ -19,6 +19,11 @@ public class InventoryController {
 
   private Inventory inventory = Inventory.INVENTORY;
 
+  /**
+   *
+   * @param bodyKits
+   * @return
+   */
   @RequestMapping(path="/inv/bodykits", method=RequestMethod.POST)
   public InventoryStatus addBodyKits(@RequestBody LinkedList<BodyKit> bodyKits) {
     int count_added = 0;
@@ -29,6 +34,11 @@ public class InventoryController {
     return new InventoryStatus(InventoryStatus.SUCCESS, InventoryStatus.ITEM_ADDED, count_added);
   }
 
+  /**
+   *
+   * @param colors
+   * @return
+   */
   @RequestMapping(path="/inv/colors", method=RequestMethod.POST)
   public InventoryStatus addBodyColors(@RequestBody LinkedList<Color> colors) {
     int count_added = 0;
@@ -39,6 +49,11 @@ public class InventoryController {
     return new InventoryStatus(InventoryStatus.SUCCESS, InventoryStatus.ITEM_ADDED, count_added);
   }
 
+  /**
+   *
+   * @param engines
+   * @return
+   */
   @RequestMapping(path="/inv/engines", method=RequestMethod.POST)
   public InventoryStatus addEngines(@RequestBody LinkedList<Engine> engines) {
     int count_added = 0;
@@ -49,6 +64,11 @@ public class InventoryController {
     return new InventoryStatus(InventoryStatus.SUCCESS, InventoryStatus.ITEM_ADDED, count_added);
   }
 
+  /**
+   *
+   * @param finishes
+   * @return
+   */
   @RequestMapping(path="/inv/finishes", method=RequestMethod.POST)
   public InventoryStatus addFinishes(@RequestBody LinkedList<Finish> finishes) {
     int count_added = 0;
@@ -59,6 +79,11 @@ public class InventoryController {
     return new InventoryStatus(InventoryStatus.SUCCESS, InventoryStatus.ITEM_ADDED, count_added);
   }
 
+  /**
+   *
+   * @param powerSources
+   * @return
+   */
   @RequestMapping(path="/inv/powersources", method=RequestMethod.POST)
   public InventoryStatus addPowerSources(@RequestBody LinkedList<PowerSource> powerSources) {
     int count_added = 0;
@@ -69,6 +94,11 @@ public class InventoryController {
     return new InventoryStatus(InventoryStatus.SUCCESS, InventoryStatus.ITEM_ADDED, count_added);
   }
 
+  /**
+   *
+   * @param wheels
+   * @return
+   */
   @RequestMapping(path="/inv/wheels", method=RequestMethod.POST)
   public InventoryStatus addWheels(@RequestBody LinkedList<Wheel> wheels) {
     int count_added = 0;
