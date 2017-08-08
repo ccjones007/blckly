@@ -32,7 +32,7 @@ public class OrderController {
    *
    * @return
    */
-  @RequestMapping(path="/bodykits", method= RequestMethod.GET)
+  @RequestMapping(path="/order/bodykits", method= RequestMethod.GET)
   public LinkedList<BodyKit> getAvailableBodyKits() {
      return inventory.getBodyKits();
   }
@@ -41,7 +41,7 @@ public class OrderController {
    *
    * @return
    */
-  @RequestMapping(path="/colors", method= RequestMethod.GET)
+  @RequestMapping(path="/order/colors", method= RequestMethod.GET)
   public LinkedList<Color> getAvailableColors() {
     return inventory.getColors();
   }
@@ -50,7 +50,7 @@ public class OrderController {
    *
    * @return
    */
-  @RequestMapping(path="/engines", method= RequestMethod.GET)
+  @RequestMapping(path="/order/engines", method= RequestMethod.GET)
   public LinkedList<Engine> getAvailableEngines() {
     return inventory.getEngines();
   }
@@ -59,7 +59,7 @@ public class OrderController {
    *
    * @return
    */
-  @RequestMapping(path="/finishes", method= RequestMethod.GET)
+  @RequestMapping(path="/order/finishes", method= RequestMethod.GET)
   public LinkedList<Finish> getAvailableFinishes() {
     return inventory.getFinishes();
   }
@@ -68,7 +68,7 @@ public class OrderController {
    *
    * @return
    */
-  @RequestMapping(path="/powersources", method= RequestMethod.GET)
+  @RequestMapping(path="/order/powersources", method= RequestMethod.GET)
   public LinkedList<PowerSource> getAvailablePowerSources() {
     return inventory.getPowerSources();
   }
@@ -77,7 +77,7 @@ public class OrderController {
    *
    * @return
    */
-  @RequestMapping(path="/wheels", method= RequestMethod.GET)
+  @RequestMapping(path="/order/wheels", method= RequestMethod.GET)
   public LinkedList<Wheel> getAvailableWheels() {
     return inventory.getWheels();
   }
@@ -87,9 +87,11 @@ public class OrderController {
    * @param order
    * @return
    */
-  @RequestMapping(path="orderkit", method=RequestMethod.POST)
+  @RequestMapping(path="/order/orderkit", method=RequestMethod.POST)
   public OrderStatus orderKitTwo(@RequestBody Order order) {
     OrderStatus orderStatus = new OrderStatus();
+    // search a history of kits that have been orders for an exact match. If match found then use the geo location to check distance.
+
     // use the address to determine uniqueness and if not unique then return with
     // order status of NOT_UNIQ.
     RestTemplate geoLocationService = new RestTemplate();
