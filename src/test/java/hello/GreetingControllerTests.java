@@ -20,13 +20,19 @@ import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import org.junit.Test;
+import com.blckly.kit.parts.Wheel;
+import org.junit.jupiter.api.Test;
+
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
 import org.springframework.boot.test.context.SpringBootTest;
+// import org.springframework.http.MediaType;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -35,6 +41,18 @@ public class GreetingControllerTests {
 
     @Autowired
     private MockMvc mockMvc;
+
+    @Test
+    public void addWheels() {
+        Wheel wheel = new Wheel("testwheel1");
+        List<Wheel> wheels = new ArrayList<Wheel>();
+        wheels.add(wheel);
+
+        //this.mockMvc.perform(
+        //        post("inv/wheels").contentType(MediaType.APPLICATION_JSON).content(asJsonString())
+        //).andDo(print()).andExpect(status().isOk())
+        //        .andExpect(jsonPath("$.content").value("{\"status\":\"success\",\"id\":1,\"count\":1}"));
+    }
 
     @Test
     public void noParamGreetingShouldReturnDefaultMessage() throws Exception {

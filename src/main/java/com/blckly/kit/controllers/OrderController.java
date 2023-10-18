@@ -9,93 +9,93 @@ import com.blckly.kit.parts.Finish;
 import com.blckly.kit.orders.Kit;
 import com.blckly.kit.parts.PowerSource;
 import com.blckly.kit.parts.Wheel;
-import com.blckly.kit.utils.GeoDistance;
 import com.blckly.kit.utils.Inventory;
 import java.util.LinkedList;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 @RestController
 public class OrderController {
 
-  private Inventory inventory = Inventory.INVENTORY;
+  final private Inventory inventory = Inventory.INVENTORY;
 
-  private Logger logger = Logger.getLogger(OrderController.class);
+  final private Logger logger = LogManager.getLogger(OrderController.class);
 
   // get parts in inventory by part
 
   /**
    *
-   * @return
+   * @return json of available body kits
    */
-  @RequestMapping(path="/bodykits", method= RequestMethod.GET)
+  @GetMapping("/bodykits")
   public LinkedList<BodyKit> getAvailableBodyKits() {
      return inventory.getBodyKits();
   }
 
   /**
    *
-   * @return
+   * @return json of available colors
    */
-  @RequestMapping(path="/colors", method= RequestMethod.GET)
+  @GetMapping("/colors")
   public LinkedList<Color> getAvailableColors() {
     return inventory.getColors();
   }
 
   /**
    *
-   * @return
+   * @return json of available engines
    */
-  @RequestMapping(path="/engines", method= RequestMethod.GET)
+  @GetMapping("/engines")
   public LinkedList<Engine> getAvailableEngines() {
     return inventory.getEngines();
   }
 
   /**
    *
-   * @return
+   * @return json of available finishes
    */
-  @RequestMapping(path="/finishes", method= RequestMethod.GET)
+  @GetMapping("/finishes")
   public LinkedList<Finish> getAvailableFinishes() {
     return inventory.getFinishes();
   }
 
   /**
    *
-   * @return
+   * @return json of available power sources
    */
-  @RequestMapping(path="/powersources", method= RequestMethod.GET)
+  @GetMapping("/powersources")
   public LinkedList<PowerSource> getAvailablePowerSources() {
     return inventory.getPowerSources();
   }
 
   /**
    *
-   * @return
+   * @return json of available wheels
    */
-  @RequestMapping(path="/wheels", method= RequestMethod.GET)
+  @GetMapping("/wheels")
   public LinkedList<Wheel> getAvailableWheels() {
     return inventory.getWheels();
   }
 
   /**
    *
-   * @param order
-   * @return
+   * @param order order information
+   * @return json of kit's various parts availability
    */
-  @RequestMapping(path="orderkit", method=RequestMethod.POST)
+  @PostMapping("orderkit")
   public OrderStatus orderKitTwo(@RequestBody Order order) {
     OrderStatus orderStatus = new OrderStatus();
     // use the address to determine uniqueness and if not unique then return with
     // order status of NOT_UNIQ.
-    RestTemplate geoLocationService = new RestTemplate();
+    // RestTemplate geoLocationService = new RestTemplate();
     // Using elastic search endpoint just for testing.
-    GeoDistance geoDistance = geoLocationService.getForObject("http://localhost:9200/?pretty", GeoDistance.class);
-    logger.info(geoDistance.toString());
+    // GeoDistance geoDistance = geoLocationService.getForObject("http://localhost:9200/?pretty", GeoDistance.class);
+    // logger.info(geoDistance.toString());
 
     // remove each order piece from inventory and if back ordered then set status as such.
     Kit kit = order.getKit();

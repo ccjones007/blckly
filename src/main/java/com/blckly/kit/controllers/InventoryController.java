@@ -9,22 +9,23 @@ import com.blckly.kit.parts.Wheel;
 import com.blckly.kit.utils.Inventory;
 import com.blckly.kit.utils.InventoryStatus;
 import java.util.LinkedList;
+
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
 
 @RestController
 public class InventoryController {
 
-  private Inventory inventory = Inventory.INVENTORY;
+  final private Inventory inventory = Inventory.INVENTORY;
 
   /**
    *
-   * @param bodyKits
-   * @return
+   * @param bodyKits json of body kits to add to inventory
+   * @return json of order status for body kits
    */
-  @RequestMapping(path="/inv/bodykits", method=RequestMethod.POST)
+  @PostMapping("/inv/bodykits")
   public InventoryStatus addBodyKits(@RequestBody LinkedList<BodyKit> bodyKits) {
     int count_added = 0;
     for( BodyKit bk : bodyKits) {
@@ -36,10 +37,10 @@ public class InventoryController {
 
   /**
    *
-   * @param colors
-   * @return
+   * @param colors json of colors to add to inventory
+   * @return json of order status for colors
    */
-  @RequestMapping(path="/inv/colors", method=RequestMethod.POST)
+  @PostMapping("/inv/colors")
   public InventoryStatus addBodyColors(@RequestBody LinkedList<Color> colors) {
     int count_added = 0;
     for( Color c : colors) {
@@ -51,10 +52,10 @@ public class InventoryController {
 
   /**
    *
-   * @param engines
-   * @return
+   * @param engines json of engines to add to inventory
+   * @return json of order status for engines
    */
-  @RequestMapping(path="/inv/engines", method=RequestMethod.POST)
+  @PostMapping("/inv/engines")
   public InventoryStatus addEngines(@RequestBody LinkedList<Engine> engines) {
     int count_added = 0;
     for( Engine e : engines) {
@@ -66,10 +67,10 @@ public class InventoryController {
 
   /**
    *
-   * @param finishes
-   * @return
+   * @param finishes json of finishes to add to inventory
+   * @return json of order status for finishes
    */
-  @RequestMapping(path="/inv/finishes", method=RequestMethod.POST)
+  @PostMapping("/inv/finishes")
   public InventoryStatus addFinishes(@RequestBody LinkedList<Finish> finishes) {
     int count_added = 0;
     for( Finish f : finishes) {
@@ -81,10 +82,10 @@ public class InventoryController {
 
   /**
    *
-   * @param powerSources
-   * @return
+   * @param powerSources json of power sources to add to inventory
+   * @return json of order status for power sources
    */
-  @RequestMapping(path="/inv/powersources", method=RequestMethod.POST)
+  @PostMapping("/inv/powersources")
   public InventoryStatus addPowerSources(@RequestBody LinkedList<PowerSource> powerSources) {
     int count_added = 0;
     for( PowerSource ps : powerSources) {
@@ -96,10 +97,10 @@ public class InventoryController {
 
   /**
    *
-   * @param wheels
-   * @return
+   * @param wheels json of wheels to add to inventory
+   * @return json of order status for wheels
    */
-  @RequestMapping(path="/inv/wheels", method=RequestMethod.POST)
+  @PostMapping("/inv/wheels")
   public InventoryStatus addWheels(@RequestBody LinkedList<Wheel> wheels) {
     int count_added = 0;
     for( Wheel w : wheels) {

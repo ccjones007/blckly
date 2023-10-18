@@ -7,20 +7,21 @@ import com.blckly.kit.parts.Finish;
 import com.blckly.kit.parts.PowerSource;
 import com.blckly.kit.parts.Wheel;
 import java.util.LinkedList;
-import org.apache.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class Inventory {
 
   public static final Inventory INVENTORY = new Inventory();
 
-  private Logger logger = Logger.getLogger(Inventory.class);
+  final private Logger logger = LogManager.getLogger(Inventory.class);
 
-  private LinkedList<BodyKit> bodyKits = new LinkedList<BodyKit>();
-  private LinkedList<Color> colors = new LinkedList<Color>();
-  private LinkedList<Engine> engines = new LinkedList<Engine>();
-  private LinkedList<Finish> finishes = new LinkedList<Finish>();
-  private LinkedList<PowerSource> powerSources = new LinkedList<PowerSource>();
-  private LinkedList<Wheel> wheels = new LinkedList<Wheel>();
+  final private LinkedList<BodyKit> bodyKits = new LinkedList<BodyKit>();
+  final private LinkedList<Color> colors = new LinkedList<Color>();
+  final private LinkedList<Engine> engines = new LinkedList<Engine>();
+  final private LinkedList<Finish> finishes = new LinkedList<Finish>();
+  final private LinkedList<PowerSource> powerSources = new LinkedList<PowerSource>();
+  final private LinkedList<Wheel> wheels = new LinkedList<Wheel>();
 
   private Inventory() {
     logger.info("initializing Inventory instance");
